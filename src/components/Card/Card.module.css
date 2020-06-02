@@ -1,0 +1,59 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  border: 1px solid transparent;
+  width: 340px;
+  margin: 0 auto;   /*//////////////////////////// тебе сюда /////////////////////////////////*/
+  color: #FFD197;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.card:hover {
+  border: 1px solid #FFD197;
+  border-radius: 5px;
+}
+
+.name {
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+.weight {
+
+}
+
+.price {
+  padding: 0 10px;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+}
+
+.details {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 100px;
+  border-radius: 20px;
+  color: #FFD197;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: 1px solid #FFD197;
+  cursor:pointer;
+  overflow: hidden; 
+
+}
+
+.details:hover {
+  background-color: #FFD197;
+  color: rgb(59, 40, 24);
+}

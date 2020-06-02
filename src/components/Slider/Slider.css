@@ -1,0 +1,12 @@
+.slider-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.slider-visible:focus {
+  border: none;
+}
+
+.slider-current:focus {
+  border: none;
+}
