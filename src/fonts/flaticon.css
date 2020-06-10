@@ -25,12 +25,26 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-        font-size: 20px;
-font-style: normal;
-margin-left: 20px;
+  font-size: 20px;
+  font-style: normal;
+/* margin-left: 20px; */
 }
 
 .flaticon-null:before { content: "\f100"; }
 .flaticon-placeholder:before { content: "\f101"; }
 .flaticon-prev:before { content: "\f102"; }
 .flaticon-next:before { content: "\f103"; }
+
+.flaticon-next:before {
+  font-size: 40px;
+  position: relative;
+  top: 50%;
+  right: 0;
+}
+
+.flaticon-prev:before {
+  font-size: 40px;
+  position: relative;
+  top: 50%;
+  left: 25%;
+}

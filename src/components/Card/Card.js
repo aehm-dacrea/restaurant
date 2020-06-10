@@ -3,7 +3,7 @@ import React from 'react'
 import classes from './Card.module.css'
 
 const Card = (props) => {
-
+  
   return (
     <div className={classes.card}>
       {props.children}
@@ -13,7 +13,7 @@ const Card = (props) => {
         <span className={classes.price}>36MDL</span>
         <span className={classes.oldPrice}>45MDL</span>
       </div>
-      <button className={classes.details}>Детали</button>
+      <button id={props.id} onClick={() => props.onClick(props.id, props.img)} className={classes.details}>Детали</button>
     </div>
   )
 }

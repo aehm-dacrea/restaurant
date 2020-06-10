@@ -6,7 +6,7 @@
   padding: 10px 0;
   border: 1px solid transparent;
   width: 340px;
-  margin: 0 auto;   /*//////////////////////////// тебе сюда /////////////////////////////////*/
+  margin: 10px auto;
   color: #FFD197;
 }
 
@@ -49,11 +49,13 @@ p {
   background-repeat:no-repeat;
   border: 1px solid #FFD197;
   cursor:pointer;
-  overflow: hidden; 
-
 }
 
 .details:hover {
   background-color: #FFD197;
   color: rgb(59, 40, 24);
+}
+
+.details:focus {
+  outline: 0;
 }

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-// import { window } from 'browser-monads'
-import useWindow from './useWindow'
+import { window } from 'browser-monads'
+// import useWindow from './useWindow'
 
 function useWindowWidth() {
-  const {window} = useWindow()
+  // const {window} = useWindow()
   const [width, setWidth] = useState(window.innerWidth);
   
   useEffect(() => {

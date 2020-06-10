@@ -1,0 +1,42 @@
+.container {
+  position: fixed;
+  width: 280px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  z-index: 5;
+  box-sizing: border-box;
+  transition: transform 0.2s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2D1306;
+  border-left: 1px solid #FFD197;
+}
+
+.link {
+  padding: 3px 0;
+  padding-left: 20px;
+  border-bottom: 1px solid #FFD197;
+  display: inline-block;
+  width: 100%;
+}
+
+.topRaw {
+  width: 100%;
+  display: inline;
+  align-self: flex-start;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #FFD197;
+}
+
+.language {
+  margin: 10px 0;
+  margin-left: 40px;
+}
+
+.tel {
+  align-self: flex-start;
+}

@@ -8,21 +8,24 @@ const useImage = (props) => {
         nodes {
           childImageSharp {
             id
-            fixed (width: 320, height: 240) {
+            fixed (width: 320, height: 240, quality: 70, cropFocus: CENTER) {
               src
               ...GatsbyImageSharpFixed_withWebp
             }
-            fluid {
-              src
-              ...GatsbyImageSharpFluid_withWebp
-            }
+          }
+        }
+      }
+      desktop: file(relativePath: {eq: "bg_wood.jpg"}) {
+        childImageSharp {
+          fluid (quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
     }
   `)
 
-  return data.images.nodes
+  return {nodes: data.images.nodes, desktop: data.desktop}
 }
 
 export default useImage

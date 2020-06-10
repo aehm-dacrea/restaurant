@@ -1,0 +1,76 @@
+.FullCard {
+  z-index: 500;
+  position: fixed;
+  height: calc(100vh - 20px);
+  width: 500px;
+  background-color: rgba(68, 48, 31, 0.7);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0 20px 40px;
+  border: 1px solid #FFD197;
+  flex-direction: column;
+  color: #FFD197;
+}
+
+@media screen and (max-width: 400px) {
+  .FullCard {
+    width: 350px;
+    height: 600px;
+  }
+  
+}
+
+.Container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.Img {
+  border-radius: 7px 7px 0 0;
+  border: 2px solid #FFD197;
+}
+
+.name {
+  margin-top: 10px;
+  font-size: 2.5rem;
+}
+
+.weight, .composition {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.button {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 150px;
+  border-radius: 5px;
+  color: #FFD197;
+  font-size: 1.7rem;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: 1px solid #FFD197;
+  cursor:pointer;
+  justify-self: flex-end;
+}
+
+.button:hover {
+  background-color: #FFD197;
+  color: rgb(59, 40, 24);
+}
+
+.button:focus {
+  outline: 0;
+}

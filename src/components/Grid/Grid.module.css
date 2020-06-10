@@ -1,0 +1,45 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(5, 150px);
+  grid-gap: 10px;
+  grid-auto-flow: row;
+  justify-content: center;
+
+}
+
+.header {
+  color: #FFD197;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 2.5rem;
+}
+
+.card {
+  height: 150px;
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.card:hover {
+  border-radius: 5px;
+  border: 1px solid #FFD197;
+}
+
+.name {
+  font-size: 1rem;
+  color: #FFD197;
+  line-height: normal;
+}
+
+.price {
+  font-size: 0.7rem;
+  color: #FFD197;
+  line-height: normal;
+}

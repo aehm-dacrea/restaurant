@@ -1,0 +1,15 @@
+.slick-slider {
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.slick-next:before,
+.slick-prev:before {
+  opacity: 0;
+}
+
+.slick-initialized {
+  overflow: hidden;
+}
+
+
