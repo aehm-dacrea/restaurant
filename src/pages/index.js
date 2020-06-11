@@ -3,6 +3,7 @@ import Img from 'gatsby-image'
 import { Transition } from 'react-transition-group'
 import useImage from '../hooks/useImage'
 import useWindowWidth from '../hooks/useWindowWidth'
+import LangContext from '../hooks/LangContext'
 
 import Layout from '../layout/index'
 import TopNavbar from "../components/TopNavbar/TopNavbar"
@@ -50,28 +51,30 @@ export default function Home() {
   const grid = <Grid onClick={clickHandler}>{mapImages({height: 100, width: 100})}</Grid>
 
   return (
-    <Layout>
-      <TopNavbar/>
-      <MenuNavbar/>
-      <WelcomeScreen/>
-      <Transition in={cardClicked.clicked} timeout={150} mountOnEnter unmountOnExit>
-        {state => (
-          <FullCard 
-            img={img} 
-            onClose={closeBackdrop} 
-            clicked={cardClicked.clicked}
-            style={{transition: 'opacity 0.15s ease', ...transitionStyles[state]}} 
-          />
-        )}
-      </Transition>
-      <Heading id='gustari' title='Закуски'/>
-      {width && (width > 400 ? carousel : grid)}
-      <Heading id='salate' title='Салаты'/>
-      {width && (width > 400 ? carousel : grid)}
-      <Heading id='supe' title='Супы'/>
-      {width && (width > 400 ? carousel : grid)}
-      <Heading id='pizza' title='Пицца'/>
-      {width && (width > 400 ? carousel : grid)}
-    </Layout>
+    <LangContext.Provider value='ru'>
+      <Layout>
+        <TopNavbar/>
+        <MenuNavbar/>
+        <WelcomeScreen/>
+        <Transition in={cardClicked.clicked} timeout={150} mountOnEnter unmountOnExit>
+          {state => (
+            <FullCard 
+              img={img} 
+              onClose={closeBackdrop} 
+              clicked={cardClicked.clicked}
+              style={{transition: 'opacity 0.15s ease', ...transitionStyles[state]}} 
+            />
+          )}
+        </Transition>
+        <Heading id='gustari' title='Закуски'/>
+        {width && (width > 400 ? carousel : grid)}
+        <Heading id='salate' title='Салаты'/>
+        {width && (width > 400 ? carousel : grid)}
+        <Heading id='supe' title='Супы'/>
+        {width && (width > 400 ? carousel : grid)}
+        <Heading id='pizza' title='Пицца'/>
+        {width && (width > 400 ? carousel : grid)}
+      </Layout>
+    </LangContext.Provider>
   )
 }

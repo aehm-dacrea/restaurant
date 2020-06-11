@@ -1,7 +1,7 @@
 import React from 'react'
 import {Helmet} from 'react-helmet'
 // import { useSiteMetadata } from "../hooks/use-site-metadata"
-// import BackgroundSection from '../components/BackgroundSection'
+import Footer from '../components/Footer'
 import styles from './layout.module.css'
 import './layout.css'
 
@@ -14,9 +14,8 @@ const Layout = (props) => {
         <meta name="robots" content="noindex,follow"/>
         <html lang="ru" />
       </Helmet>
-      {/* <BackgroundSection> */}
-        {props.children}
-      {/* </BackgroundSection> */}
+      {props.children}
+      <Footer/>
     </div>
   )
 }

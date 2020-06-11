@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
 import { Link } from 'gatsby'
 import styles from './TopNavbar.module.css'
 import '../../fonts/flaticon.css'
-
+import T from '../utils/i18n'
 import Modal from '../Modal'
 
 const TopNavbar = (props) => {
@@ -26,18 +26,18 @@ const TopNavbar = (props) => {
         </div>
         <div className={styles.hours}>
           <div className={styles.hour}>
-            <i className='flaticon-placeholder'></i>Кишинёв 10:00 - 23:00
+            <i className='flaticon-placeholder'></i>{T('Кишинёв', 'Chișinău')} 10:00 - 23:00
           </div>
         </div>
         <div className={styles.language}>
           <div className={styles.dropdown}>
-            <Link to='/md' className={[styles.dropbtn, styles.lang].join(' ')}>Română</Link>
+            <Link to={T('/md', '/')} className={[styles.dropbtn, styles.lang].join(' ')}>{T('Română', 'Русский')}</Link>
             {/* <div className={styles.dropdownContent}>
               <a href="#">Русский</a>
               <a href="#">Română</a>
             </div> */}
           </div> 
-          <button onClick={() => changeMenuState()} className={styles.menu}>Наше Меню</button>
+          <button onClick={() => changeMenuState()} className={styles.menu}>{T('Наше Меню', 'Meniu')}</button>
           <Modal className={menuClosed ? styles.closed : styles.opened} closed={menuClosed} closeMenu={changeMenuState}/>
         </div>
       </div>

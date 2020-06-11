@@ -136,6 +136,7 @@
 
 @media screen and (max-width: 1050px) {
   .dropdown {display: none;}
+  .language {margin-right: 20px;}
 }
 
 @media screen and (min-width: 1050px) {
