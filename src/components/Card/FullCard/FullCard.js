@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Img from 'gatsby-image'
 import useWindowWidth from '../../../hooks/useWindowWidth'
-import { document } from 'browser-monads'
+import T from '../../utils/i18n'
+// import { document } from 'browser-monads'
 
 import Backdrop from '../../Backdrop'
 import styles from './FullCard.module.css'
@@ -23,11 +24,11 @@ const FullCard = (props) => {
         className={styles.FullCard}
         style={props.style}
       >
-        {props.img ? <Img className={styles.Img} fixed={{...props.img, ...imgSize}}/> : null}
-        <p className={styles.name}>Баранина</p>
-        <p className={styles.weight}>Вес: 300 г.</p>
-        <p className={styles.composition}><span style={{borderBottom: '1px solid currentColor'}}>Состав:</span> корж, баранина, моццарелла, лук, корж, баранина, моццарелла, лук</p>
-        <button className={styles.button} onClick={props.onClose}>Закрыть</button>
+        {props.img ? <Img className={styles.Img} alt={props.alt} fixed={{...props.img, ...imgSize}}/> : null}
+        <p className={styles.name}>{props.name}</p>
+        <p className={styles.weight}>{`${T('Вес:', 'Masa netă:')} ${props.weight}`}</p>
+        <p className={styles.composition}><span style={{borderBottom: '1px solid currentColor'}}>{T('Состав:', 'Ingrediente:')}</span>{` ${props.composition}`}</p>
+        <button className={styles.button} onClick={props.onClose}>{T('Закрыть', 'Închide')}</button>
       </div>
     </div>
   )

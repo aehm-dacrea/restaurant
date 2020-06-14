@@ -24,16 +24,7 @@ const Carousel = (props) => {
     <div className={styles.container}>
       <p className={styles.header}>Горячие Блюда</p>
       <Slider {...settings}>
-        {React.Children.map(props.children, child => (
-          <Card 
-            key={child.key} 
-            id={child.key} 
-            img={child.props.fixed}
-            onClick={props.onClick}
-          >
-            {child}
-          </Card>
-        ))}
+        {props.children}
       </Slider>
     </div>
   )
