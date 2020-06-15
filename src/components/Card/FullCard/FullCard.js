@@ -27,7 +27,7 @@ const FullCard = (props) => {
         {props.img ? <Img className={styles.Img} alt={props.alt} fixed={{...props.img, ...imgSize}}/> : null}
         <p className={styles.name}>{props.name}</p>
         <p className={styles.weight}>{`${T('Вес:', 'Masa netă:')} ${props.weight}`}</p>
-        <p className={styles.composition}><span style={{borderBottom: '1px solid currentColor'}}>{T('Состав:', 'Ingrediente:')}</span>{` ${props.composition}`}</p>
+        <p className={styles.composition}><span style={{borderBottom: '1px solid currentColor'}}>{T('Состав:', 'Ingrediente:')}</span>{` ${props.composition ?? ' '}`}</p>
         <button className={styles.button} onClick={props.onClose}>{T('Закрыть', 'Închide')}</button>
       </div>
     </div>

@@ -6,6 +6,7 @@
     "Cвинины",
     "Peste",
     "Porc",
+    "adresa",
     "bauturi",
     "bucate",
     "calde",
@@ -17,6 +18,8 @@
     "gustari",
     "gustari calde",
     "gustari rece",
+    "noastr",
+    "noastră",
     "outro",
     "pentru",
     "rece",
@@ -39,6 +42,7 @@
     "Рыбные",
     "Салаты",
     "Супы",
-    "Холодные"
+    "Холодные",
+    "адрес"
   ]
 }

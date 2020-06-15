@@ -55,12 +55,14 @@ export default function Home() {
     exited:  { opacity: 0 },
   }
 
-  const mapCards = (nodes, size = {}) => {
-    return nodes.map(node => (
+  const mapCards = (category, size = {}) => {
+    const imgArray = []
+    category[0].nodes.map(node => imgArray.push(node.foto.localFile.childImageSharp.fixed))
+    return category[0].nodes.map((node, index) => (
       <Card
         key={node.id} 
         id={node.id} 
-        img={node.foto.localFile.childImageSharp.fixed} 
+        img={imgArray[index]} 
         onClick={clickHandler}
         name={node.name}
         weight={node.weight}
@@ -68,8 +70,31 @@ export default function Home() {
         alt={node.alt}
         composition={node.composition}
       >
-        <Img key={node.id} style={{borderRadius: '5px'}} alt={node.alt} fixed={{...node.foto.localFile.childImageSharp.fixed, ...size}}/>
+        <Img 
+          key={node.id} 
+          style={{borderRadius: '5px'}} 
+          alt={node.alt} 
+          fixed={{...imgArray[index], ...size}}
+        />
       </Card>
+    ))
+  }
+
+  const mapImages = (category) => {
+    const dataArray = []
+    category[0].nodes.map(node => dataArray.push(node))
+
+    return category[0].nodes.map((node, index) => (
+      <Img 
+        key={dataArray[index].id}
+        style={{borderRadius: '5px'}} 
+        fixed={{...node.foto.localFile.childImageSharp.fixed, height: 100, width: 100}} 
+        name={dataArray[index].name}
+        weight={dataArray[index].weight}
+        price={dataArray[index].price}
+        alt={dataArray[index].alt}
+        composition={dataArray[index].composition}
+      />
     ))
   }
 
@@ -93,15 +118,46 @@ export default function Home() {
             />
           )}
         </Transition>
-        <Carousel>{mapCards(gustariRece[0].nodes)}</Carousel>
-        {/* <Heading id='gustari' title='Закуски'/>
-        {width && (width > 400 ? carousel : grid)}
-        <Heading id='salate' title='Салаты'/>
-        {width && (width > 400 ? carousel : grid)}
-        <Heading id='supe' title='Супы'/>
-        {width && (width > 400 ? carousel : grid)}
-        <Heading id='pizza' title='Пицца'/>
-        {width && (width > 400 ? carousel : grid)} */}
+        {width && (width > 400 
+          ? <Carousel id={"gustari"} title={'Gustări Rece'}>{mapCards(gustariRece)}</Carousel> 
+          : <Grid onClick={clickHandler} id={"gustari"} title={'Gustări Rece'}>{mapImages(gustariRece)}</Grid>)
+        }
+        {width && (width > 400 
+          ? <Carousel title={'Gustări Calde'}>{mapCards(gustariCalde)}</Carousel> 
+          : <Grid onClick={clickHandler} title={'Gustări Calde'}>{mapImages(gustariCalde)}</Grid>)
+        }
+        {width && (width > 400 
+          ? <Carousel id={"salate"} title={'Salate'}>{mapCards(salate)}</Carousel> 
+          : <Grid onClick={clickHandler} id={"salate"} title={'Salate'}>{mapImages(salate)}</Grid>)
+        }
+        {width && (width > 400 
+          ? <Carousel id={"supe"} title={'Supe'}>{mapCards(supe)}</Carousel> 
+          : <Grid onClick={clickHandler} id={"supe"} title={'Supe'}>{mapImages(supe)}</Grid>)
+        }
+        {width && (width > 400 
+          ? <Carousel id={"pizza"} title={'Pizza'}>{mapCards(pizza)}</Carousel> 
+          : <Grid onClick={clickHandler} id={"pizza"} title={'Pizza'}>{mapImages(pizza)}</Grid>)
+        }
+        {/* {width && (width > 400 
+          ? <Carousel id={"bucate-calde"} title={'Bucate din Porc'}>{mapCards(bucateDinPorc)}</Carousel> 
+          : <Grid onClick={clickHandler} id={"bucate-calde"} title={'Bucate din Porc'}>{mapImages(bucateDinPorc)}</Grid>)
+        } */}
+        {/* {width && (width > 400 
+          ? <Carousel title={'Блюда из Говядины'}>{mapCards(Bucate din Vită)}</Carousel> 
+          : <Grid onClick={clickHandler} title={'Блюда из Говядины'}>{mapImages(Bucate din Vită)}</Grid>)
+        } */}
+        {width && (width > 400 
+          ? <Carousel title={'Bucate din Pește'}>{mapCards(bucateDinPeste)}</Carousel> 
+          : <Grid onClick={clickHandler} title={'Bucate din Pește'}>{mapImages(bucateDinPeste)}</Grid>)
+        }
+        {width && (width > 400 
+          ? <Carousel id={"pentru-companii"} title={'Pentru Companii'}>{mapCards(pentruCompanii)}</Carousel> 
+          : <Grid onClick={clickHandler} id={"pentru-companii"} title={'Pentru Companii'}>{mapImages(pentruCompanii)}</Grid>)
+        }
+        {/* {width && (width > 400 
+          ? <Carousel id={"garnituri"} title={'Gărnituri'}>{mapCards(garnituri)}</Carousel> 
+          : <Grid onClick={clickHandler} id={"garnituri"} title={'Gărnituri'}>{mapImages(garnituri)}</Grid>)
+        } */}
       </Layout>
     </LangContext.Provider>
   )

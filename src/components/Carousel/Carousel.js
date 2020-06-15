@@ -2,7 +2,6 @@ import React from 'react'
 import Slider from "react-slick"
 import {NextArrow, PrevArrow} from './Arrows'
 import useResponsiveSlides from '../../hooks/useResponsiveSlides'
-import Card from '../Card'
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -22,7 +21,7 @@ const Carousel = (props) => {
 
   return (
     <div className={styles.container}>
-      <p className={styles.header}>Горячие Блюда</p>
+      <p id={props.id} className={styles.heading}>{props.title}</p>
       <Slider {...settings}>
         {props.children}
       </Slider>

@@ -6,8 +6,10 @@
   padding: 10px 0;
   border: 1px solid transparent;
   width: 340px;
+  height: 470px;
   margin: 10px auto;
   color: #FFD197;
+  text-align: center;
 }
 
 p {
@@ -22,18 +24,27 @@ p {
 .name {
   margin-top: 20px;
   font-size: 1.5rem;
+  line-height: 1.8rem;
 }
 
 .weight {
-
+  position: absolute;
+  bottom: 100px;
 }
 
 .price {
+  position: absolute;
+  bottom: 63px;
   padding: 0 10px;
 }
 
 .oldPrice {
   text-decoration: line-through;
+}
+
+.card .details {
+  position: absolute;
+  bottom: 20px;
 }
 
 .details {

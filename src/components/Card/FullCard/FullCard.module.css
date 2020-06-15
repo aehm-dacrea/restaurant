@@ -5,19 +5,20 @@
   width: 500px;
   background-color: rgba(68, 48, 31, 0.7);
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   border-radius: 10px;
-  padding: 0 20px 40px;
+  padding: 0 20px 25px;
   border: 1px solid #FFD197;
-  flex-direction: column;
+  
   color: #FFD197;
 }
 
 @media screen and (max-width: 400px) {
   .FullCard {
     width: 350px;
-    height: 600px;
+    height: 620px;
   }
   
 }
@@ -41,17 +42,29 @@
 
 .name {
   margin-top: 10px;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   text-align: center;
+  line-height: 2.5rem;
 }
 
 .weight, .composition {
   font-size: 1.5rem;
   text-align: center;
+  line-height: 1.8rem;
+  word-break: break-all;
+}
+
+.weight {
+  padding: 10px 0;
+}
+
+.FullCard .button {
+  position: relative;
+  bottom: 0;
 }
 
 .button {
-  margin-top: 50px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
