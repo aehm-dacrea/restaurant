@@ -15,6 +15,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -41,6 +42,34 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
+          foto {
+          localFile {
+          childImageSharp {
+            fixed(width: 320, height: 240, quality: 70, cropFocus: CENTER) {
+              ...GatsbyImageSharpFixed_withWebp
+            }
+          }
+        }
+        }
+        alt
+        composition
+        contentfulid
+        }
+      }
+    }
+    gustariLaBere: allContentfulNewDish(
+      sort: {order: ASC, fields: contentfulid}, 
+      filter: {category: {eq: "Закуски к Пиву"}}
+      ) {
+      group(field: node_locale) {
+        fieldValue
+        nodes {
+          id
+          name
+          weight
+          price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -67,6 +96,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -93,6 +123,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -119,6 +150,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -136,7 +168,7 @@ const useData = (props) => {
     }
     bucateDinPorc: allContentfulNewDish(
       sort: {order: ASC, fields: contentfulid}, 
-      filter: {category: {eq: "Блюда из Cвинины"}}
+      filter: {category: {eq: "Блюда из Свинины"}}
       ) {
       group(field: node_locale) {
         fieldValue
@@ -145,6 +177,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -162,7 +195,7 @@ const useData = (props) => {
     }
     bucateDinVita: allContentfulNewDish(
       sort: {order: ASC, fields: contentfulid}, 
-      filter: {category: {eq: "Блюда из Говядины"}}
+      filter: {category: {eq: "Блюда из Говядины (и Баранины)"}}
       ) {
       group(field: node_locale) {
         fieldValue
@@ -171,6 +204,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -197,6 +231,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -223,6 +258,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -249,6 +285,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -275,6 +312,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -301,6 +339,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -327,6 +366,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -353,6 +393,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -379,6 +420,7 @@ const useData = (props) => {
           name
           weight
           price
+          oldPrice
           foto {
           localFile {
           childImageSharp {
@@ -401,11 +443,13 @@ const useData = (props) => {
   return {
     gustariRece: data.gustariRece.group,
     gustariCalde: data.gustariCalde.group,
+    gustariLaBere: data.gustariLaBere.group,
     salate: data.salate.group,
     supe: data.supe.group,
     pizza: data.pizza.group,
     bucateDinPorc: data.bucateDinPorc.group,
     bucateDinVita: data.bucateDinVita.group,
+    bucateDinPui: data.bucateDinPui.group,
     bucateDinPeste: data.bucateDinPeste.group,
     pentruCompanii: data.pentruCompanii.group,
     garnituri: data.garnituri.group,

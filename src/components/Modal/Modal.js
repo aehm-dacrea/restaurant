@@ -8,16 +8,16 @@ import Backdrop from '../Backdrop'
 const Modal = (props) => {
   // document.querySelectorAll(`.${styles.link}`).forEach(link => link.addEventListener('click', props.closeMenu))
   const linkArray = [
-    {id: '/#gustari', title: {ru: 'Закуски', ro: 'Gustări'}},
-    {id: '/#salate', title: {ru: 'Салаты', ro: 'Salate'}},
-    {id: '/#supe', title: {ru: 'Супы', ro: 'Supe'}},
-    {id: '/#pizza', title: {ru: 'Пицца', ro: 'Pizza'}},
-    {id: '/#bucate-calde', title: {ru: 'Горячие Блюда', ro: 'Bucate Calde'}},
-    {id: '/#pentru-companii', title: {ru: 'Блюда для Компании', ro: 'Pentru Companii'}},
-    {id: '/#garnituri', title: {ru: 'Гарниры', ro: 'Gărnituri'}},
-    {id: '/#clatite', title: {ru: 'Блинчики', ro: 'Clătite'}},
-    {id: '/#deserte', title: {ru: 'Десерты', ro: 'Deserte'}},
-    {id: '/#bauturi', title: {ru: 'Напитки', ro: 'Băuturi'}}
+    {id: `${T('', '/md')}/#gustari`, title: {ru: 'Закуски', ro: 'Gustări'}},
+    {id: `${T('', '/md')}/#salate`, title: {ru: 'Салаты', ro: 'Salate'}},
+    {id: `${T('', '/md')}/#supe`, title: {ru: 'Супы', ro: 'Supe'}},
+    {id: `${T('', '/md')}/#pizza`, title: {ru: 'Пицца', ro: 'Pizza'}},
+    {id: `${T('', '/md')}/#bucate-calde`, title: {ru: 'Горячие Блюда', ro: 'Bucate Calde'}},
+    {id: `${T('', '/md')}/#pentru-companii`, title: {ru: 'Блюда для Компании', ro: 'Pentru Companii'}},
+    {id: `${T('', '/md')}/#garnituri`, title: {ru: 'Гарниры', ro: 'Gărnituri'}},
+    {id: `${T('', '/md')}/#clatite`, title: {ru: 'Блинчики', ro: 'Clătite'}},
+    {id: `${T('', '/md')}/#deserte`, title: {ru: 'Десерты', ro: 'Deserte'}},
+    {id: `${T('', '/md')}/#bauturi`, title: {ru: 'Напитки', ro: 'Băuturi'}}
   ]
   const backdropStyle = {
     height: '100vh', 
@@ -30,7 +30,7 @@ const Modal = (props) => {
 
   return (
     <div>
-      <div style={{...backdropStyle, ...(props.closed ? {display: 'none'} : {})}}>
+      <div style={{ ...backdropStyle, ...(props.closed ? {display: 'none'} : {}) }}>
         <Backdrop onClose={props.closeMenu}/>
       </div>
       <div className={`${styles.container} ${props.className}`}>

@@ -1,0 +1,29 @@
+.container {
+  transition: opacity 0.1s ease-out;
+}
+
+.tooltip {
+  height: 80px;
+  width: 170px;
+  position: absolute;
+  left: 20px;
+  top: 55px;
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2D1306;
+  border-radius: 10px;
+  border: 1px solid #FFD197;
+}
+
+.tooltip::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%; /* At the bottom of the tooltip */
+  left: 15%;
+  margin-left: -5px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent transparent #FFD197 transparent;
+}

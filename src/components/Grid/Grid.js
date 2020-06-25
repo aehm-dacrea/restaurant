@@ -11,7 +11,10 @@ const Grid = (props) => {
           <div className={styles.card} onClick={() => props.onClick(child.props.id, child.props.fixed, {name: child.props.name, weight: child.props.weight, composition: child.props.composition, alt: child.props.alt})}>
             {child}
             <p className={styles.name}>{child.props.name}</p>
-            <p className={styles.price}>{`${child.props.price}MDL`}</p>
+            <p className={styles.price}>
+              <span>{`${child.props.price}MDL`}</span>
+              <span className={styles.oldPrice}>{child.props.oldPrice && `${child.props.oldPrice}MDL`}</span>
+              </p>
           </div>
         ))}
       </div>

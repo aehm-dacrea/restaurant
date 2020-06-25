@@ -32,10 +32,14 @@ p {
   bottom: 100px;
 }
 
-.price {
+.priceContainer {
   position: absolute;
   bottom: 63px;
   padding: 0 10px;
+}
+
+.price {
+  padding-right: 10px;
 }
 
 .oldPrice {

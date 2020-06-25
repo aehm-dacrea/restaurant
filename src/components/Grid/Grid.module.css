@@ -12,7 +12,7 @@
 
 .card {
   padding-top: 5px;
-  height: 180px;
+  height: 190px;
   width: 110px;
   display: flex;
   flex-direction: column;
@@ -40,6 +40,11 @@
   font-size: 0.7rem;
   color: #FFD197;
   line-height: normal;
+}
+
+.oldPrice {
+  padding-left: 5px;
+  text-decoration: line-through;
 }
 
 .heading {

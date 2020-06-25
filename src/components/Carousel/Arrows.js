@@ -5,8 +5,8 @@ function NextArrow(props) {
   const iconStyle = {
     height: '64px', 
     width: '100px', 
-    color: 'black', 
-    opacity: 0.2
+    color: '#FFD197', 
+    opacity: 0.8,
   }
   const divStyle = {
     ...style, 
@@ -16,7 +16,8 @@ function NextArrow(props) {
     display: "flex", 
     justifyContent: 'center', 
     alignItems: 'center', 
-    borderRadius: '5px'
+    borderRadius: '5px',
+    top: '30%'
   }
 
   return (
@@ -35,8 +36,8 @@ function PrevArrow(props) {
   const iconStyle = {
     height: '64px', 
     width: '100px', 
-    color: 'black', 
-    opacity: 0.2
+    color: '#FFD197', 
+    opacity: 0.8,
   }
   const divStyle = {
     ...style, 
@@ -47,7 +48,8 @@ function PrevArrow(props) {
     display: "flex", 
     justifyContent: 'center', 
     alignItems: 'center', 
-    borderRadius: '5px' 
+    borderRadius: '5px' ,
+    top: '30%'
   }
 
   return (

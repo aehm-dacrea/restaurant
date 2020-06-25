@@ -14,8 +14,8 @@ const Carousel = (props) => {
     speed: 500,
     nextArrow: <NextArrow/>,
     prevArrow: <PrevArrow/>,
-    slidesToShow: slides,
-    slidesToScroll: slides,
+    slidesToShow: slides < props.children.length ? slides : props.children.length,
+    slidesToScroll: slides < props.children.length ? slides : props.children.length,
     infinite: true,
   }
 

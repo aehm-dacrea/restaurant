@@ -10,9 +10,9 @@ const Card = (props) => {
       {props.children}
       <p className={classes.name}>{props.name}</p>
       <p className={classes.weight}>{`${props.weight}`}</p>
-      <div style={{display: 'flex', justifyContent: 'center'}}>
+      <div className={classes.priceContainer}>
         <span className={classes.price}>{`${props.price}MDL`}</span>
-        <span className={classes.oldPrice}></span>
+        <span className={classes.oldPrice}>{props.oldPrice && `${props.oldPrice}MDL`}</span>
       </div>
       <button 
         id={props.id} 
