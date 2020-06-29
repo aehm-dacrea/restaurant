@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import { document } from 'browser-monads'
 
 import styles from './CallWindow.module.css'
 import Backdrop from '../Backdrop'
@@ -7,7 +8,7 @@ const CallWindow = (props) => {
   useEffect(() => {
     document.querySelector('html').classList.add(styles.overflowHidden)
   }, [])
-  
+
   const showOverflow = () => {
     document.querySelector('html').classList.remove(styles.overflowHidden)
   }

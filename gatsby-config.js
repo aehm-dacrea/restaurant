@@ -15,13 +15,24 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
 module.exports = {
   siteMetadata: {
-    siteTitle: "Pizza House", // Site title.
+    siteTitle: ["Ресторан Pizza House", "Restaurant Pizza House"], // Site title.
     siteTitleShort: "Pizza House", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
     siteTitleAlt: "Restaurant Pizza House", // Alternative site title for SEO.
     siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
     siteUrl: "https://pizzahouse.md", // Domain of your website without pathPrefix.
     pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
-    siteDescription: "Restaurant de familie cu bucătărie deliciosă și zona largă pentru copii.", // Website description used for RSS feeds/meta description tag.
+    siteDescription: [
+      'Меню Pizza House - семейный ресторан в Кишинёве с доставкой еды по городу', 
+      'Meniu Pizza House - restaurant de familie cu livrarea bucatelor în raza orașului Chișinău'
+    ],
+    galleryTitle: [
+      'Ресторан Pizza House - Галерея',
+      'Restaurant Pizza House - Galerie'
+    ],
+    galleryMetaDescription: [
+      'Галерея Pizza House - семейный ресторан в Кишинёве с доставкой еды по городу', 
+      'Galerie Pizza House - restaurant de familie cu livrarea bucatelor în raza orașului Chișinău'
+    ]
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -1,12 +1,12 @@
 import React from 'react'
 import Img from 'gatsby-image'
 
-import useData from '../hooks/useData'
-import LangContext from '../hooks/LangContext'
-import Layout from '../layout'
-import styles from './gallery.module.css'
-import TopNavbar from '../components/TopNavbar/'
-import MenuNavbar from '../components/MenuNavbar'
+import useData from '../../hooks/useData'
+import LangContext from '../../hooks/LangContext'
+import Layout from '../../layout'
+import styles from '../gallery.module.css'
+import TopNavbar from '../../components/TopNavbar/'
+import MenuNavbar from '../../components/MenuNavbar'
 
 export default function Home() {
   const { gallery, site: {galleryTitle, galleryMetaDescription} } = useData()
@@ -40,7 +40,7 @@ export default function Home() {
   }
 
   return (
-    <LangContext.Provider value='ru'>
+    <LangContext.Provider value='ro'>
       <Layout title={galleryTitle} description={galleryMetaDescription}>
         <TopNavbar/>
         <MenuNavbar/>

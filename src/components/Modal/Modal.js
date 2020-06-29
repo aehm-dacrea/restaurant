@@ -17,7 +17,9 @@ const Modal = (props) => {
     {id: `${T('', '/md')}/#garnituri`, title: {ru: 'Гарниры', ro: 'Gărnituri'}},
     {id: `${T('', '/md')}/#clatite`, title: {ru: 'Блинчики', ro: 'Clătite'}},
     {id: `${T('', '/md')}/#deserte`, title: {ru: 'Десерты', ro: 'Deserte'}},
-    {id: `${T('', '/md')}/#bauturi`, title: {ru: 'Напитки', ro: 'Băuturi'}}
+    {id: `${T('', '/md')}/#bauturi`, title: {ru: 'Напитки', ro: 'Băuturi'}},
+    {id: `${T('', '/md')}/gallery`, title: {ru: 'Галерея', ro: 'Galerie'}},
+
   ]
   const backdropStyle = {
     height: '100vh', 
@@ -43,6 +45,14 @@ const Modal = (props) => {
             <Link key={link.id} className={styles.link} to={link.id} onClick={props.closeMenu}>{T(link.title.ru, link.title.ro)}</Link>
           ))}
         </div>
+        <div className={styles.socialContainer}>
+          <a className={styles.facebook} target="_blank" rel="noopener noreferrer" href={'https://www.facebook.com/Pizzahouse.md'}>facebook link</a>
+          <a className={styles.instagram} target="_blank" rel="noopener noreferrer" href={'https://www.instagram.com/pizza_house_md'}>instagram link</a>
+        </div>
+        {/* <div className={styles.textContainer}>
+          <p>{T('Доставка осуществляется в пределах города Кишинёв', 'Livrarea se efectuează în raza orașului Chișinău')}</p>
+          <p>{T('Стоимость доставки 30 лей. При заказе свыше 300 лей доставка бесплатная', 'Prețul livrării este 30 lei. Pentru comenzile de la 300 lei livrarea este gratuită')}</p>
+        </div> */}
       </div>
     </div>
   )

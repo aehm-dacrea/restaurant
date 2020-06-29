@@ -12,8 +12,8 @@ const Footer = (props) => {
         <p>{T('Наш Адрес: ', 'Adresa: ')}</p>
         <p>{T('г. Кишинев ', 'or. Chișinău')}</p>
         <p>{T('Московский Проспект 14/1 ', 'Bulevardul Moscova 14/1')}</p>
-        <p>{T('Доставка осуществляется в пределах мун. Кишинёв', 'Livrarea se efectuează în raza orașului Chișinău')}</p>
-        <p>{T('Стоимость доставки узнавайте у наших партнёров Straus.md', 'Costul livrării aflați la partenerii noștri - Straus.md')}</p>
+        <p>{T('Доставка осуществляется в пределах города Кишинёв', 'Livrarea se efectuează în raza orașului Chișinău')}</p>
+        <p>{T('Стоимость доставки 30 лей. При заказе свыше 300 лей доставка бесплатная', 'Prețul livrării este 30 lei. Pentru comenzile de la 300 lei livrarea este gratuită')}</p>
         <div className={styles.socialContainer}>
           <a className={styles.facebook} target="_blank" rel="noopener noreferrer" href={'https://www.facebook.com/Pizzahouse.md'}></a>
           <a className={styles.instagram} target="_blank" rel="noopener noreferrer" href={'https://www.instagram.com/pizza_house_md'}></a>

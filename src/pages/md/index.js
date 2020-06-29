@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react"
 import Img from 'gatsby-image'
 import { Transition } from 'react-transition-group'
-import useData from '../hooks/useData'
-import useWindowWidth from '../hooks/useWindowWidth'
-import LangContext from '../hooks/LangContext'
+import useData from '../../hooks/useData'
+import useWindowWidth from '../../hooks/useWindowWidth'
+import LangContext from '../../hooks/LangContext'
 
-import Layout from '../layout/index'
-import TopNavbar from "../components/TopNavbar/TopNavbar"
-import FullCard from '../components/Card/FullCard'
-import Carousel from '../components/Carousel'
-import Grid from '../components/Grid'
-import MenuNavbar from '../components/MenuNavbar'
-import Heading from '../components/Heading'
-import WelcomeScreen from '../components/WelcomeScreen'
-import Card from '../components/Card'
-import Advertisement from '../components/Advertisement'
-import CallWindow from '../components/CallWindow'
+import Layout from '../../layout/index'
+import TopNavbar from "../../components/TopNavbar/TopNavbar"
+import FullCard from '../../components/Card/FullCard'
+import Carousel from '../../components/Carousel'
+import Grid from '../../components/Grid'
+import MenuNavbar from '../../components/MenuNavbar'
+import WelcomeScreen from '../../components/WelcomeScreen'
+import Card from '../../components/Card'
+import Advertisement from '../../components/Advertisement'
+import CallWindow from '../../components/CallWindow'
 
 export default function Home() {
   const {
@@ -35,6 +34,7 @@ export default function Home() {
     deserte,
     bauturiAlcoholice,
     bauturiNonAlcoholice,
+    site: {siteTitle, siteDescription}
   } = useData()
   let windowWidth = useWindowWidth() 
   const [width, setWidth] = useState(null)
@@ -122,7 +122,7 @@ export default function Home() {
 
   return (
     <LangContext.Provider value='ro'>
-      <Layout>
+      <Layout title={siteTitle} description={siteDescription}>
         <TopNavbar/>
         <MenuNavbar/>
         <WelcomeScreen open={openCallWindow}/>

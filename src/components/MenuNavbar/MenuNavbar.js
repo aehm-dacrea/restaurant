@@ -21,6 +21,7 @@ const MenuNavbar = (props) => {
       <Link className={styles.link} to={T('/#clatite', '/md#clatite')}>{T('Блинчики', 'Clătite')}</Link>
       <Link className={styles.link} to={T('/#deserte', '/md#deserte')}>{T('Десерты', 'Deserte')}</Link>
       <Link className={styles.link} to={T('/#bauturi', '/md#bauturi')}>{T('Напитки', 'Băuturi')}</Link>
+      <Link className={styles.link} to={T('/gallery', '/md/gallery')}>{T('Галерея', 'Galerie')}</Link>
       </div>
     </div>
   )

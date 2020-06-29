@@ -19,15 +19,32 @@ body, html {
 
 html {
   overflow-x: hidden;
-  background: url(../assets/background.webp) no-repeat center center;
+  /* background: url(../assets/background.webp) no-repeat center center;
   background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-color: #2D1306; */
   background-color: #2D1306;
   display: flex;
   justify-content: center;
+}
+
+body:after{
+  content:"";
+  position:fixed; /* stretch a fixed position to the whole screen */
+  top:0;
+  height:100vh; /* fix for mobile browser address bar appearing disappearing */
+  left:0;
+  right:0;
+  z-index:-1; /* needed to keep in the background */
+  background-attachment: scroll;
+  background: url(../assets/background.jpg) center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 a {

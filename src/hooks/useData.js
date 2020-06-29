@@ -436,6 +436,31 @@ const useData = (props) => {
         }
       }
     }
+    gallery: allContentfulGallery(sort: {order: ASC, fields: index}) {
+      group(field: node_locale) {
+        nodes {
+          alt
+          contentful_id
+          image {
+            localFile {
+              childImageSharp {
+                fluid(quality: 100, cropFocus: CENTER) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    site {
+      siteMetadata {
+        galleryTitle
+        galleryMetaDescription
+        siteTitle
+        siteDescription
+      }
+    }
   }
   `)
 
@@ -457,6 +482,8 @@ const useData = (props) => {
     deserte: data.deserte.group,
     bauturiAlcoholice: data.bauturiAlcoholice.group,
     bauturiNonAlcoholice: data.bauturiNonAlcoholice.group,
+    gallery: data.gallery.group[0].nodes,
+    site: data.site.siteMetadata
   }
 }
 
