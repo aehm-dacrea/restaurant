@@ -1,3 +1,3 @@
-gatsby develop или npm run develop чтобы стартануть
-
-src\components\Card\Card.module.css в этом файле стиль, который центрует элементы в Slider
+#### How to start:
+`npm install`
+`gatsby develop` or `gatsby build && gatsby serve`
