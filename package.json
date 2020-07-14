@@ -38,7 +38,6 @@
     "react-slick": "^0.26.1",
     "react-transition-group": "^4.4.1",
     "react-typography": "^0.16.19",
-    "slick-carousel": "^1.8.1",
     "typography": "^0.16.19"
   },
   "devDependencies": {

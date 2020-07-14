@@ -1,12 +1,11 @@
 import React from 'react'
 import Slider from "react-slick"
-import {NextArrow, PrevArrow} from './Arrows'
+import { NextArrow, PrevArrow } from './Arrows'
 import useResponsiveSlides from '../../hooks/useResponsiveSlides'
 
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+import "./slick-styles/slick.css"
+import "./slick-styles/slick-theme.css"
 import styles from './Carousel.module.css'
-import './Carousel.css'
 
 const Carousel = (props) => {
   const {slides} = useResponsiveSlides()
