@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import Img from 'gatsby-image'
 import { Transition } from 'react-transition-group'
 import useData from '../hooks/useData'
@@ -50,11 +50,11 @@ export default function Home() {
     return () => clearTimeout(timeout)
   }, [])
   
-  const clickHandler = (id, img, card) => {
+  const clickHandler = useCallback((id, img, card) => {
     setCardClicked({id: id, clicked: true})
     setImg(img)
     setCard({...card})
-  }
+  }, [])
   const closeBackdrop = () => {
     setCardClicked({...cardClicked, clicked: false})
   }
@@ -120,6 +120,32 @@ export default function Home() {
     ))
   }
 
+  const dishes = [
+    {category: gustariRece, title: 'Холодные Закуски', gridTitle: 'Холодные Закуски', id: 'gustari'},
+    {category: gustariCalde, title: 'Горячие Закуски', gridTitle: 'Горячие Закуски'},
+    {category: gustariLaBere, title: 'Закуски к Пиву', gridTitle: 'Закуски к Пиву'},
+    {category: salate, title: 'Салаты', gridTitle: 'Салаты', id: 'salate'},
+    {category: supe, title: 'Супы', gridTitle: 'Супы', id: 'supe'},
+    {category: pizza, title: 'Пицца', gridTitle: 'Пицца', id: 'pizza'},
+    {category: bucateDinPorc, title: 'Блюда из Свинины', gridTitle: 'Блюда из Свинины', id: 'bucate-calde'},
+    {category: bucateDinVita, title: 'Блюда из Говядины', gridTitle: 'Блюда из Говядины'},
+    {category: bucateDinPui, title: 'Блюда из Курицы', gridTitle: 'Блюда из Курицы'},
+    {category: bucateDinPeste, title: 'Рыбные Блюда', gridTitle: 'Рыбные Блюда'},
+    {category: pentruCompanii, title: 'Блюда для Компании', gridTitle: 'Для Компании', id: 'pentru-companii'},
+    {category: garnituri, title: 'Гарниры', gridTitle: 'Гарниры', id: 'garnituri'},
+    {category: clatite, title: 'Блинчики', gridTitle: 'Блинчики', id: 'clatite'},
+    {category: deserte, title: 'Десерты', gridTitle: 'Десерты', id: 'deserte'},
+    {category: bauturiAlcoholice, title: 'Безалкогольные Напитки', gridTitle: 'Безалкогольные', id: 'bauturi'},
+    {category: bauturiNonAlcoholice, title: 'Алкогольные Напитки', gridTitle: 'Алкогольные'},
+  ]
+
+  const mapDishes = dishes => dishes.map(dish => (
+    <div key={dish.title}>
+      <Carousel category={dish.category} onClick={clickHandler} id={dish.id ? dish.id : null} title={dish.title} />
+      <Grid category={dish.category} onClick={clickHandler} id={dish.id ? dish.id : null} title={dish.gridTitle} />
+    </div>
+  ))
+
   return (
     <LangContext.Provider value='ru'>
       <Layout title={siteTitle} description={siteDescription}>
@@ -146,70 +172,73 @@ export default function Home() {
         <Transition in={adOpened} timeout={200} mountOnEnter unmountOnExit>
           {state => <Advertisement style={{...transitionStyles[state]}} close={closeAd}/>}
         </Transition>
-        {width && (width > 550 
-          ? <Carousel id={"gustari"} title={'Холодные Закуски'}>{mapCards(gustariRece)}</Carousel> 
-          : <Grid onClick={clickHandler} id={"gustari"} title={'Холодные Закуски'}>{mapImages(gustariRece)}</Grid>)
+
+        {mapDishes(dishes)}
+
+        {/* {width && (width > 550 
+          ? <Carousel category={gustariRece} onClick={clickHandler} id={"gustari"} title={'Холодные Закуски'} />
+          : <Grid category={gustariRece} onClick={clickHandler} id={"gustari"} title={'Холодные Закуски'}>{mapImages(gustariRece)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel title={'Горячие Закуски'}>{mapCards(gustariCalde)}</Carousel> 
-          : <Grid onClick={clickHandler} title={'Горячие Закуски'}>{mapImages(gustariCalde)}</Grid>)
+          ? <Carousel category={gustariCalde} onClick={clickHandler} title={'Горячие Закуски'} />
+          : <Grid category={gustariCalde} onClick={clickHandler} title={'Горячие Закуски'}>{mapImages(gustariCalde)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel title={'Закуски к Пиву'}>{mapCards(gustariLaBere)}</Carousel> 
-          : <Grid onClick={clickHandler} title={'Закуски к Пиву'}>{mapImages(gustariLaBere)}</Grid>)
+          ? <Carousel category={gustariLaBere} onClick={clickHandler} title={'Закуски к Пиву'} />
+          : <Grid category={gustariLaBere} onClick={clickHandler} title={'Закуски к Пиву'}>{mapImages(gustariLaBere)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel id={"salate"} title={'Салаты'}>{mapCards(salate)}</Carousel> 
-          : <Grid onClick={clickHandler} id={"salate"} title={'Салаты'}>{mapImages(salate)}</Grid>)
+          ? <Carousel category={salate} onClick={clickHandler} id={"salate"} title={'Салаты'} />
+          : <Grid category={salate} onClick={clickHandler} id={"salate"} title={'Салаты'}>{mapImages(salate)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel id={"supe"} title={'Супы'}>{mapCards(supe)}</Carousel> 
-          : <Grid onClick={clickHandler} id={"supe"} title={'Супы'}>{mapImages(supe)}</Grid>)
+          ? <Carousel category={supe} onClick={clickHandler} id={"supe"} title={'Супы'} />
+          : <Grid category={supe} onClick={clickHandler} id={"supe"} title={'Супы'}>{mapImages(supe)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel id={"pizza"} title={'Пицца'}>{mapCards(pizza)}</Carousel> 
-          : <Grid onClick={clickHandler} id={"pizza"} title={'Пицца'}>{mapImages(pizza)}</Grid>)
+          ? <Carousel category={pizza} onClick={clickHandler} id={"pizza"} title={'Пицца'} />
+          : <Grid category={pizza} onClick={clickHandler} id={"pizza"} title={'Пицца'}>{mapImages(pizza)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel id={"bucate-calde"} title={'Блюда из Свинины'}>{mapCards(bucateDinPorc)}</Carousel> 
-          : <Grid onClick={clickHandler} id={"bucate-calde"} title={'Блюда из Свинины'}>{mapImages(bucateDinPorc)}</Grid>)
+          ? <Carousel category={bucateDinPorc} onClick={clickHandler} id={"bucate-calde"} title={'Блюда из Свинины'} /> 
+          : <Grid category={bucateDinPorc} onClick={clickHandler} id={"bucate-calde"} title={'Блюда из Свинины'}>{mapImages(bucateDinPorc)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel title={'Блюда из Говядины'}>{mapCards(bucateDinVita)}</Carousel> 
-          : <Grid onClick={clickHandler} title={'Блюда из Говядины'}>{mapImages(bucateDinVita)}</Grid>)
+          ? <Carousel category={bucateDinVita} onClick={clickHandler} title={'Блюда из Говядины'} />
+          : <Grid category={bucateDinVita} onClick={clickHandler} title={'Блюда из Говядины'}>{mapImages(bucateDinVita)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel title={'Блюда из Курицы'}>{mapCards(bucateDinPui)}</Carousel> 
-          : <Grid onClick={clickHandler} title={'Блюда из Курицы'}>{mapImages(bucateDinPui)}</Grid>)
+          ? <Carousel category={bucateDinPui} onClick={clickHandler} title={'Блюда из Курицы'} />
+          : <Grid category={bucateDinPui} onClick={clickHandler} title={'Блюда из Курицы'}>{mapImages(bucateDinPui)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel title={'Рыбные Блюда'}>{mapCards(bucateDinPeste)}</Carousel> 
-          : <Grid onClick={clickHandler} title={'Рыбные Блюда'}>{mapImages(bucateDinPeste)}</Grid>)
+          ? <Carousel category={bucateDinPeste} onClick={clickHandler} title={'Рыбные Блюда'} />
+          : <Grid category={bucateDinPeste} onClick={clickHandler} title={'Рыбные Блюда'}>{mapImages(bucateDinPeste)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel id={"pentru-companii"} title={'Блюда для Компании'}>{mapCards(pentruCompanii)}</Carousel> 
-          : <Grid onClick={clickHandler} id={"pentru-companii"} title={'Для Компании'}>{mapImages(pentruCompanii)}</Grid>)
+          ? <Carousel category={pentruCompanii} onClick={clickHandler} id={"pentru-companii"} title={'Блюда для Компании'} />
+          : <Grid category={pentruCompanii} onClick={clickHandler} id={"pentru-companii"} title={'Для Компании'}>{mapImages(pentruCompanii)}</Grid>)
         }
         {width && (width > 550
-          ? <Carousel id={"garnituri"} title={'Гарниры'}>{mapCards(garnituri)}</Carousel> 
-          : <Grid onClick={clickHandler} id={"garnituri"} title={'Гарниры'}>{mapImages(garnituri)}</Grid>)
+          ? <Carousel category={garnituri} onClick={clickHandler} id={"garnituri"} title={'Гарниры'} /> 
+          : <Grid category={garnituri} onClick={clickHandler} id={"garnituri"} title={'Гарниры'}>{mapImages(garnituri)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel id={"clatite"} title={'Блинчики'}>{mapCards(clatite)}</Carousel> 
-          : <Grid onClick={clickHandler} id={"clatite"} title={'Блинчики'}>{mapImages(clatite)}</Grid>)
+          ? <Carousel category={clatite} onClick={clickHandler} id={"clatite"} title={'Блинчики'} />
+          : <Grid category={clatite} onClick={clickHandler} id={"clatite"} title={'Блинчики'}>{mapImages(clatite)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel id={"deserte"} title={'Десерты'}>{mapCards(deserte)}</Carousel> 
-          : <Grid onClick={clickHandler} id={"deserte"} title={'Десерты'}>{mapImages(deserte)}</Grid>)
+          ? <Carousel category={deserte} onClick={clickHandler} id={"deserte"} title={'Десерты'} />
+          : <Grid category={deserte} onClick={clickHandler} id={"deserte"} title={'Десерты'}>{mapImages(deserte)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel id={"bauturi"} title={'Безалкогольные Напитки'}>{mapCards(bauturiNonAlcoholice)}</Carousel> 
-          : <Grid onClick={clickHandler} id={"bauturi"} title={'Безалкогольные'}>{mapImages(bauturiNonAlcoholice)}</Grid>)
+          ? <Carousel category={bauturiNonAlcoholice} onClick={clickHandler} id={"bauturi"} title={'Безалкогольные Напитки'} />
+          : <Grid category={bauturiNonAlcoholice} onClick={clickHandler} id={"bauturi"} title={'Безалкогольные'}>{mapImages(bauturiNonAlcoholice)}</Grid>)
         }
         {width && (width > 550 
-          ? <Carousel title={'Алкогольные Напитки'}>{mapCards(bauturiAlcoholice)}</Carousel> 
-          : <Grid onClick={clickHandler} title={'Алкогольные'}>{mapImages(bauturiAlcoholice)}</Grid>)
-        }
+          ? <Carousel category={bauturiAlcoholice} onClick={clickHandler} title={'Алкогольные Напитки'} />
+          : <Grid category={bauturiAlcoholice} onClick={clickHandler} title={'Алкогольные'}>{mapImages(bauturiAlcoholice)}</Grid>)
+        } */}
         
       </Layout>
     </LangContext.Provider>
